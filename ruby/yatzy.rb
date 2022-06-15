@@ -13,74 +13,29 @@ class Yatzy
     return 50
   end
 
-  def self.ones( d1,  d2,  d3,  d4,  d5)
+  def self.singles(num, *args)
     sum = 0
-    if (d1 == 1)
-      sum += 1
-    end
-    if (d2 == 1)
-      sum += 1
-    end
-    if (d3 == 1)
-      sum += 1
-    end
-    if (d4 == 1)
-      sum += 1
-    end
-    if (d5 == 1)
-      sum += 1
-    end
-
-    sum
-  end
-
-  def self.twos( d1,  d2,  d3,  d4,  d5)
-    sum = 0
-    if (d1 == 2)
-      sum += 2
-    end
-    if (d2 == 2)
-      sum += 2
-    end
-    if (d3 == 2)
-      sum += 2
-    end
-    if (d4 == 2)
-      sum += 2
-    end
-    if (d5 == 2)
-      sum += 2
-    end
+    args.each { |n| if n == num then sum += num end }
     return sum
   end
 
-  def self.threes( d1,  d2,  d3,  d4,  d5)
-    s = 0
-    if (d1 == 3)
-      s += 3
-    end
-    if (d2 == 3)
-      s += 3
-    end
-    if (d3 == 3)
-      s += 3
-    end
-    if (d4 == 3)
-      s += 3
-    end
-    if (d5 == 3)
-      s += 3
-    end
-    return s
+  def self.ones( d1,  d2,  d3,  d4,  d5)
+    num = 1
+    self.singles(num, d1,  d2,  d3,  d4,  d5)
   end
 
-  def initialize(d1, d2, d3, d4, _5)
-    @dice = [0]*5
-    @dice[0] = d1
-    @dice[1] = d2
-    @dice[2] = d3
-    @dice[3] = d4
-    @dice[4] = _5
+  def self.twos( d1,  d2,  d3,  d4,  d5)
+    num = 2
+    self.singles(num, d1,  d2,  d3,  d4,  d5)
+  end
+
+  def self.threes( d1,  d2,  d3,  d4,  d5)
+    num = 3
+    self.singles(num, d1,  d2,  d3,  d4,  d5)
+  end
+
+  def initialize(*args)
+    @dice = args
   end
 
   def fours
